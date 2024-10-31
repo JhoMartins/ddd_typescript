@@ -22,4 +22,29 @@ export default class OrderRepository {
       }
     );
   }
+
+  async update(entity: Order): Promise<void> {
+    await OrderModel.update(
+      {
+        customer_id: entity.customerId,
+        total: entity.total(),
+      },
+      {
+        where: { id: entity.id },
+      }
+    );
+
+    await Promise.all(
+      entity.items.map(async (item) => {
+        await OrderItemModel.upsert({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          product_id: item.productId,
+          quantity: item.quantity,
+          order_id: entity.id,
+        });
+      })
+    );
+  }
 }
