@@ -42,4 +42,20 @@ describe("Oder unit tests", () => {
     }).toThrowError("Quantity must be greather than zero");
 	});
 
+  it("Should change customerId", () => {
+    const item = new OrderItem("i1", "Item 1", 100, "p1", 2);
+    const order = new Order("01", "c1", [item]);
+    order.changeCustomerId("c2");
+
+    expect(order.customerId).toBe("c2");
+	});
+
+  it("Should change items", () => {
+    const item = new OrderItem("i1", "Item 1", 100, "p1", 2);
+    const newItem = new OrderItem("i2", "Item 2", 200, "p2", 2);
+    const order = new Order("01", "c1", [item]);
+    order.changeItems([newItem]);
+    
+    expect(order.items).toStrictEqual([newItem]);
+	});
 });
