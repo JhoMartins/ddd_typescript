@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import Address from "../value-object/address";
-import CustomerModel from "../../../infrastructure/db/sequelize/model/customer.model";
-import CustomerRepository from "../../../infrastructure/repository/customer.repository";
+import CustomerModel from "../../../infrastructure/customer/repository/sequelize/customer.model";
+import CustomerRepository from "../../../infrastructure/customer/repository/sequelize/customer.repository";
 import EventDispatcher from "../../@shared/event/event-dispatcher";
 import EnviaConsoleLog1Handler from "../event/handler/envia-console-log-1.handler";
 import EnviaConsoleLog2Handler from "../event/handler/envia-console-log-2.handler";
