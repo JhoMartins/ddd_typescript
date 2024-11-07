@@ -1,10 +1,10 @@
 import {v4 as uuid} from "uuid";
 import CustomerRepositoryInterface from "../repository/customer-reposity.interface";
-import EventDispatcherInterface from "../event/@shared/event-dispatcher.interface";
+import EventDispatcherInterface from "../../@shared/event/event-dispatcher.interface";
 import Customer from "../entity/customer";
-import CustomerCreatedEvent from "../event/@shared/customer/customer-created.event";
-import Address from "../entity/address";
-import CustomerAddressChangedEvent from "../event/@shared/customer/customer-address-changed-event";
+import CustomerCreatedEvent from "../event/customer-created.event";
+import Address from "../value-object/address";
+import CustomerAddressChangedEvent from "../event/customer-address-changed-event";
 export default class CustomerService {
   private customerRepo: CustomerRepositoryInterface;
   private eventDispatcher: EventDispatcherInterface;
